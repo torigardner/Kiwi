@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Checking to make sure VSCode is connected!</Text>
+      <Text>Checking to make sure VSCode is connected! For Mitchell.</Text>
       <StatusBar style="auto" />
     </View>
   );
