@@ -1,13 +1,29 @@
-import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import LogIn from "./components/LogInScreen";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Checking to make sure VSCode is connected! For Mitchell.</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  function viewChangeHandler() {
+    setIsLoggedIn(true);
+    console.log("view changed");
+  }
+
+  if (isLoggedIn) {
+    return (
+      <View style={styles.container}>
+        <Text>Log In Successful</Text>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <LogIn viewChangeHandler={viewChangeHandler}></LogIn>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
