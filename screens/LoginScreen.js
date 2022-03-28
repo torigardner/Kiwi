@@ -1,18 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import KiwiButton from "../components/KiwiButton";
+import colors from "../config/colors";
 
-export default function LogIn(props) {
+export default function Login(props) {
   const userNameTarget = "test";
   const passwordTarget = "test";
 
-  const [password, setPassword] = useState(null);
-  const [username, setUsername] = useState(null);
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   function handleSubmit() {
-    console.log("Submitted...");
-    console.log(username);
-    console.log(password);
     if (username === userNameTarget && password === passwordTarget) {
       {
         props.viewChangeHandler();
@@ -33,11 +32,8 @@ export default function LogIn(props) {
         placeholder="Password"
         onChangeText={setPassword}
       />
-      <Button
-        style={styles.button}
-        title="Submit"
-        onPress={handleSubmit}
-      ></Button>
+      <KiwiButton title="login" onPress={handleSubmit} />
+      <KiwiButton title="register" color="secondary" />
     </View>
   );
 }
@@ -51,7 +47,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -59,8 +55,7 @@ const styles = StyleSheet.create({
     fontSize: 60,
     textAlign: "center",
     fontWeight: "bold",
-    color: "#34ebd8",
+    color: colors.primary,
     marginVertical: 8,
   },
-  button: {},
 });
