@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import Login from "./screens/LoginScreen";
+import Navigator from "./navigation/KiwiNavigator";
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,9 +14,9 @@ export default function App() {
 
   if (isLoggedIn) {
     return (
-      <View style={styles.container}>
-        <Text>LOGGEDIN</Text>
-      </View>
+      <NavigationContainer>
+        <Navigator />
+      </NavigationContainer>
     );
   } else {
     return (

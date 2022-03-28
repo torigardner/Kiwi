@@ -31,31 +31,39 @@ export default function Login(props) {
         style={styles.input}
         placeholder="Password"
         onChangeText={setPassword}
+        secureTextEntry
       />
-      <KiwiButton title="login" onPress={handleSubmit} />
-      <KiwiButton title="register" color="secondary" />
+      <View style={styles.buttonsContainer}>
+        <KiwiButton title="login" onPress={handleSubmit} />
+        <KiwiButton title="register" color="secondary" />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  buttonsContainer: {
+    padding: 10,
+    width: "100%",
+  },
   input: {
-    height: 40,
-    margin: 12,
+    margin: 10,
     borderWidth: 1,
     padding: 10,
+    width: "75%",
   },
   container: {
     flex: 1,
+    width: "100%",
     backgroundColor: colors.white,
     alignItems: "center",
     justifyContent: "center",
   },
   title: {
-    fontSize: 60,
+    fontSize: 80,
     textAlign: "center",
     fontWeight: "bold",
     color: colors.primary,
-    marginVertical: 8,
+    marginVertical: 40,
   },
 });
