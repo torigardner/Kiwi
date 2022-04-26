@@ -1,21 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, TextInput } from "react-native";
 import KiwiButton from "../components/KiwiButton";
 import colors from "../config/colors";
 
-export default function Login(props) {
+export default function LoginScreen(props) {
   const userNameTarget = "test";
   const passwordTarget = "test";
 
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [message, setMessage] = useState("");
 
   function handleSubmit() {
     if (username === userNameTarget && password === passwordTarget) {
       {
         props.viewChangeHandler();
       }
+    } else {
+      setMessage("Incorrect username or password...");
     }
   }
 
@@ -37,6 +40,7 @@ export default function Login(props) {
         <KiwiButton title="login" onPress={handleSubmit} />
         <KiwiButton title="register" color="secondary" />
       </View>
+      <Text style={{ color: "red" }}>{message}</Text>
     </View>
   );
 }
@@ -64,6 +68,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: colors.primary,
-    marginVertical: 40,
   },
 });
